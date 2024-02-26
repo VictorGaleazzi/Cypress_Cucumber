@@ -8,10 +8,7 @@ module.exports = defineConfig({
       on('file:preprocessor', cucumber())
     },
     baseUrl: "https://erp-homologacao.viasoft.com.br/pt/",
-    specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
-    // env: {
-    //   hideXhr: true
-    // }
+    specPattern: "cypress/Scenarios/**/*.{js,jsx,ts,tsx,feature}",
   },
   
 });

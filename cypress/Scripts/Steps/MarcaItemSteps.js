@@ -1,13 +1,5 @@
 import { When } from 'cypress-cucumber-preprocessor/steps';
-import marcaItemActions from '../action-definitons/marcaItem-actions'
-
-When(`clico no botão Mostrar menu`, () => { marcaItemActions.mostrarMenu() });
-
-When(`clico no botão Cadastros`, () => { marcaItemActions.botãoCadastros() });
-
-When(`clico no botão Itens`, () => { marcaItemActions.botãoItens() });
-
-When(`clico no botão Marca`, () => { marcaItemActions.botãoMarca() });
+import marcaItemActions from '../Actions/MarcaItemActions'
 
 When(`clico no botão Novo`, () => { marcaItemActions.botãoNovo() });
 

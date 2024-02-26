@@ -15,9 +15,6 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
-    "stepDefinitions": "cypress/support/step_definitions"
-  },
-  "dependencies": {
-    "cypress-plugin-xhr-toggle": "^1.2.1"
+    "stepDefinitions": "cypress/Scripts/Steps"
   }
 }
