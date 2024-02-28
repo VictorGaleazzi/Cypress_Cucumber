@@ -9,6 +9,7 @@ module.exports = defineConfig({
     },
     baseUrl: "https://erp-homologacao.viasoft.com.br/pt/",
     specPattern: "cypress/Scenarios/**/*.{js,jsx,ts,tsx,feature}",
+    defaultCommandTimeout: 10000
   },
   
 });

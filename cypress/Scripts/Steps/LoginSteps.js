@@ -1,4 +1,4 @@
-import { Before, And } from 'cypress-cucumber-preprocessor/steps';
+import { Before, Given, And } from 'cypress-cucumber-preprocessor/steps';
 import loginActions from '../Actions/LoginActions';
 
 Before(() => {
@@ -6,7 +6,7 @@ Before(() => {
     cy.visit('/')
   });
 
-And(`cliquei no menu {string}`, (menu) => {
+Given(`cliquei no menu {string}`, (menu) => {
     loginActions.menuButton(menu)
 });
 

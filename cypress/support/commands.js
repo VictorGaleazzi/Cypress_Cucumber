@@ -24,11 +24,11 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('login', (
-    username = Cypress.env('username'), 
+    username = Cypress.env('username'),
     password = Cypress.env('password')
 ) => {
     cy.session([username, password], () => {
-        
+
         cy.visit('/');
         cy.get('.login-form').within(() => {
             cy.get('#username').focus().type(username)
@@ -36,8 +36,13 @@ Cypress.Commands.add('login', (
             cy.root().submit().wait(5000)
         })
     },
-    {
-        cacheAcrossSpecs: true
-    })
+        {
+            cacheAcrossSpecs: true
+        })
 
 })
+
+Cypress.Commands.add('saveId', (id) => {
+    // Armazena o ID em uma variável global chamada 'idGlobal'
+    Cypress.env('idGlobal', id);
+});
