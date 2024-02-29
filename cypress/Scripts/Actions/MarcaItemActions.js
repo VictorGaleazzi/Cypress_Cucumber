@@ -21,27 +21,6 @@ class MarcaItemActions {
     botãoFormulário(botãoFormulário) {
         cy.get('header-form').find('button').contains(botãoFormulário).click();
     }
-    
-    filtroMarca(label) {
-        cy.wait(200)
-        cy.get('app-header-grid').find(`button[data-title=${label}]`).should('be.visible').click();
-    }
-
-    prenchoFiltro(label, codigo) {
-        if (codigo === 'IDMARCA') {
-          const id = Cypress.env('idGlobal');
-      
-          cy.get('.p-sidebar-content')
-            .find('label')
-            .contains(label)
-            .should('be.visible')
-            .type(id); 
-        }
-      }
-
-    envioForm(label) {
-        cy.get('.p-sidebar-content').find('button').contains(label).click()
-    }
 
     getRegistro(registro) {
         if (registro === 'IDMARCA') {
@@ -55,10 +34,9 @@ class MarcaItemActions {
         }}
         
     salvaId() {
-        cy.wait(500)
+        cy.wait(500) 
         cy.get('header-form').find('.codigo-format').then(($text) => {
             let txt = $text.text()
-
             txt = Number(txt).toString();
         
             cy.saveId(txt);

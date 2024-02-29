@@ -7,9 +7,14 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       on('file:preprocessor', cucumber())
     },
+    retries: 2,
+    viewportWidth: 1920,
+    viewportHeight: 1080,
+    defaultCommandTimeout: 10000,
+    screenshotOnRunFailure: true,
+    // trashAssetsBeforeRuns: true,
     baseUrl: "https://erp-homologacao.viasoft.com.br/pt/",
     specPattern: "cypress/Scenarios/**/*.{js,jsx,ts,tsx,feature}",
-    defaultCommandTimeout: 10000
   },
   
 });
