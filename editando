@@ -1,0 +1,25 @@
+    selecionarOpção(label, valor) {
+        cy.get('.p-card-content')
+            .find('.form-group').contains(label).siblings('p-autocomplete')
+            .find('.p-autocomplete-dropdown').click()
+
+        cy.get('.ng-trigger')
+            .find('ul[role="listbox"]')
+            .find('li[role="option"]')
+            .find('span').contains(valor).should('be.visible').click({ force: true })
+
+        cy.get('.p-card-content')
+            .find('.form-group').contains(label).siblings('p-dropdown')
+            .find('div[role="button"]').click()
+
+        cy.get('.ng-trigger')
+            .find('ul[role="listbox"]')
+            .find('p-dropdownitem')
+            .find('li[role="option"]')
+            .find('span').contains(valor).click({ force: true })
+    }
+
+    cy.get(':nth-child(4) > .form-group > #inativoPara > .p-dropdown > .p-dropdown-trigger').click()
+    cy.get(':nth-child(6) > .p-dropdown-item').click()
+    cy.get(':nth-child(6) > .p-dropdown-item').click()
+
