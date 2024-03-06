@@ -15,15 +15,17 @@ Funcionalidade: Marca Item
 
     Cenário: Editando uma marca de item
         Dado que cliquei no botão 'Filtrar'
-        E preencho o campo 'Código' do filtro com valor 'IDMARCA'
-        Quando que cliquei no botão 'Filtrar' na janela de filtro
-        E seleciono o registro com id 'IDMARCA'
+        Quando preencho o campo 'Código' do filtro com valor 'IDMARCA'
+        E clico no botão Filtrar na janela de filtro
+
+        E seleciono o registro com ultimo id
         E preencho o campo 'Descrição' com o valor 'Teste Automatizado Editado'
         E clico no botão 'Salvar' no Formulário de Marca Item
 
     Cenário: Excluindo uma marca de item
         Dado que cliquei no botão 'Filtrar'
         E preencho o campo 'Código' do filtro com valor 'IDMARCA'
-        Quando que cliquei no botão 'Filtrar' na janela de filtro
-        E seleciono o registro com id 'IDMARCA'
+        E clico no botão Filtrar na janela de filtro
+
+        E seleciono o registro com ultimo id
         E clico no botão 'Excluir' 

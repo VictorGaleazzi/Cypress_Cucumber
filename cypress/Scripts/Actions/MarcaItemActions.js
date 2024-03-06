@@ -4,8 +4,7 @@ class MarcaItemActions {
 
         if( botão === 'Excluir') {
             cy.get('header-form').find('.dropdown').find('#dropdown-help').click();
-            
-            cy.get('.dropdown-menu').contains(botão).click();
+            cy.get('.dropdown').find('.dropdown-menu').find('span').contains(botão).click();
             cy.get('.p-dialog-footer').contains('Sim').click();
             cy.get('.p-toast-message ').contains('Registro removido com sucesso').should('be.visible');
 
@@ -17,21 +16,15 @@ class MarcaItemActions {
     preencherCampo(campo, texto) {
         cy.get('.p-card-content').find('label').contains(campo).siblings('input').should('be.visible').clear().type(texto);
     }
-    
-    botãoFormulário(botãoFormulário) {
-        cy.get('header-form').find('button').contains(botãoFormulário).click();
-    }
 
-    getRegistro(registro) {
-        if (registro === 'IDMARCA') {
-            const id = Cypress.env('idGlobal');
-        
-            cy.get('.table-body-line')
-                .find('.ellipsis')
-                .contains(id)
-                .click();
-           
-        }}
+    getRegistro() {
+        const id = Cypress.env('idGlobal');
+    
+        cy.get('.table-body-line')
+            .find('.ellipsis')
+            .contains(id)
+            .click();
+       }
         
     salvaId() {
         cy.wait(500) 

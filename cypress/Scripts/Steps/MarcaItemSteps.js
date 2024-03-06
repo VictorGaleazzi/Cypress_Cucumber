@@ -9,6 +9,6 @@ When(`preencho o campo {string} com o valor {string}`, (campo, texto) => { marca
 
 When(`clico no botão {string} no Formulário de Marca Item`, (botãoFormulário) => { marcaItemActions.botãoFormulário(botãoFormulário) });
 
-When(`seleciono o registro com id {string}`, (registro) => { marcaItemActions.getRegistro(registro) });
+When(`seleciono o registro com ultimo id`, () => { marcaItemActions.getRegistro() });
 
 Then(`armazeno o valor do ID`, () => { marcaItemActions.salvaId() });
