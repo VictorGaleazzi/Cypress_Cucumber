@@ -36,7 +36,7 @@ Funcionalidade: Item
         E clico no botão 'Salvar' no Formulário de Item
         Então armazeno o valor do ID na tela de Item
 
-    Cenário: Cadastrando um novo Item
+    Cenário: Editando um Item
         Dado que cliquei no botão 'Filtrar'
         Quando preencho o campo 'Código' do filtro com valor 'IDMARCA'
         E clico no botão Filtrar na janela de filtro
@@ -52,4 +52,4 @@ Funcionalidade: Item
         E clico no botão Filtrar na janela de filtro
 
         E seleciono o registro com ultimo id
-        E clico no botão 'Excluir' 
+        E clico no botão 'Excluir' na tela de Item

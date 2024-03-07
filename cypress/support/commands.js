@@ -46,3 +46,57 @@ Cypress.Commands.add('saveId', (id) => {
     // Armazena o ID em uma variável global chamada 'idGlobal'
     Cypress.env('idGlobal', id);
 });
+
+Cypress.Commands.add('selectOption', (param, valor) => {
+
+    // const regexLabel = new RegExp(`^\\s*${label}\\s*$`);
+
+    // // const regexLabel = new RegExp(`^${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
+
+    cy.get('.p-card-content')
+        .find('.form-group')
+        .contains(param)
+        .then(($param) => {
+            if ($param.siblings('p-autocomplete').length > 0) {
+                cy.wrap($param)
+                    .siblings('p-autocomplete')
+                    .find('.p-autocomplete-dropdown')
+                    .focus() 
+                    .click();
+
+                cy.get('ul[role="listbox"]')
+                    .find('li[role="option"]')
+                    .contains(valor)
+                    .should('be.visible')
+                    .click({ force: true });
+
+            } else if ($param.siblings('p-dropdown').length > 0) {
+                cy.wrap($param)
+                    .siblings('p-dropdown')
+                    .find('div[role="button"]')
+                    .click();
+
+                    cy.get('ul[role="listbox"]')
+                        .find('p-dropdownitem')
+                        .contains(valor)
+                        .click({ force: true })
+                    cy.get('p-dropdownitem')
+                        .contains(valor)
+                        .should('be.visible')
+                        .click({ force: true })
+            } else {
+                throw new Error('Tipo de componente não suportado');
+            }
+        })
+});
+
+Cypress.Commands.overwriteQuery("contains", function (contains, param = {}) {
+    // Cria a expressão regular com o parâmetro 'param'
+    const regexParam = new RegExp(`^\\s*${param}\\s*$`);
+    
+    // Cria uma nova função 'contains0' vinculada ao contexto original
+    let contains0 = contains.bind(this);
+  
+    // Retorna a chamada da função original 'contains' com os argumentos tratados
+    return contains0(regexParam);
+  });

@@ -6,14 +6,14 @@ Before(() => {
     cy.visit('/')
   });
 
-Given(`cliquei no menu {string}`, (menu) => {
-    loginActions.menuButton(menu)
+Given(`cliquei no menu {string}`, (param) => {
+    loginActions.menuButton(param)
 });
 
-And(`cliquei no primeiro sub-menu {string}`, (firstSubMenu) => {
-    loginActions.firstSubMenu(firstSubMenu)
+And(`cliquei no primeiro sub-menu {string}`, (param) => {
+    loginActions.firstSubMenu(param)
 });
 
-And(`cliquei no segundo sub-menu {string}`, (secondSubMenu) => {
-    loginActions.secondSubMenu(secondSubMenu)
+And(`cliquei no segundo sub-menu {string}`, (param) => {
+    loginActions.secondSubMenu(param)
 });

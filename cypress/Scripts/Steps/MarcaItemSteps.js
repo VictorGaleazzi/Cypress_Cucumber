@@ -1,13 +1,9 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps';
 import marcaItemActions from '../Actions/MarcaItemActions'
 
-When(`preencho o campo {string} do filtro com valor {string}`, (label, codigo) => { marcaItemActions.prenchoFiltro(label, codigo) });
+When(`preencho o campo {string} com o valor {string}`, (param, texto) => { marcaItemActions.preencherCampo(param, texto) });
 
-When(`clico no botão {string}`, (botão) => { marcaItemActions.clickButton(botão) });
-
-When(`preencho o campo {string} com o valor {string}`, (campo, texto) => { marcaItemActions.preencherCampo(campo, texto) });
-
-When(`clico no botão {string} no Formulário de Marca Item`, (botãoFormulário) => { marcaItemActions.botãoFormulário(botãoFormulário) });
+When(`clico no botão {string} no Formulário de Marca Item`, (param) => { marcaItemActions.botãoFormulário(param) });
 
 When(`seleciono o registro com ultimo id`, () => { marcaItemActions.getRegistro() });
 

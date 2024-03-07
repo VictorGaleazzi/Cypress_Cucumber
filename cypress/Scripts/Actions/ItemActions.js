@@ -1,68 +1,30 @@
 class ItemActions {
 
-    clickButton(botão) {
+    clickButton(param) {
 
-        if( botão === 'Excluir') {
+        if( param === 'Excluir') {
             cy.get('header-form').find('.dropdown').find('#dropdown-help').click();
-            
-            cy.get('.dropdown-menu').contains(botão).click();
+            cy.get('.dropdown').find('.dropdown-menu').find('span').contains(param).click();
             cy.get('.p-dialog-footer').contains('Sim').click();
             cy.get('.p-toast-message ').contains('Registro removido com sucesso').should('be.visible');
 
         } else {
-            cy.get('app-header-grid').find('button').contains(botão).click();
+            cy.get('app-header-grid').find('button').contains(param).click();
         }
     }
     
-    preencherCampo(campo, texto) {
+    preencherCampo(param, texto) {
         cy.get('.p-card-content')
-            .find('label').contains(campo).siblings('input').focus().should('be.visible').clear().type(texto);
+            .find('label').contains(param).siblings('input').focus().should('be.visible').clear().type(texto);
     }
 
-    selecionarOpcao(label, valor) {
-
-        const regexLabel = new RegExp(`^${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
-
-        cy.get('.p-card-content')
-            .find('.form-group')
-            .contains(regexLabel)
-            .then(($label) => {
-                if ($label.siblings('p-autocomplete').length > 0) {
-                    cy.wrap($label)
-                        .siblings('p-autocomplete')
-                        .find('.p-autocomplete-dropdown')
-                        .focus() 
-                        .click();
-
-                    cy.get('ul[role="listbox"]')
-                        .find('li[role="option"]')
-                        .contains(valor)
-                        .should('be.visible')
-                        .click({ force: true });
-
-                } else if ($label.siblings('p-dropdown').length > 0) {
-                    cy.wrap($label)
-                        .siblings('p-dropdown')
-                        .find('div[role="button"]')
-                        .click();
-
-                        cy.get('ul[role="listbox"]')
-                            .find('p-dropdownitem')
-                            .contains(valor)
-                            .click({ force: true })
-                        cy.get('p-dropdownitem')
-                            .contains(valor)
-                            .should('be.visible')
-                            .click({ force: true })
-                } else {
-                    throw new Error('Tipo de componente não suportado');
-                }
-            })
+    selecionarOpcao(param, valor) {
+        cy.selectOption(param, valor)
     }
     
-    botãoFormulário(botãoFormulário) {
+    botãoFormulário(param) {
         cy.get('header-form')
-            .find('button').contains(botãoFormulário).click();
+            .find('button').contains(param).click();
     }
 
     getRegistro(registro) {

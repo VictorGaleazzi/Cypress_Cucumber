@@ -1,23 +1,23 @@
 class FiltroActions {
 
-    filtroMarca(label) {
+    filtroMarca(param) {
         cy.wait(200)
-        cy.get('app-header-grid').find(`button[data-title=${label}]`).should('be.visible').click();
+        cy.get('app-header-grid').find(`button[data-title=${param}]`).should('be.visible').click();
     }
 
         
-    botãoFormulário(botãoFormulário) {
-        cy.get('header-form').find('button').contains(botãoFormulário).click();
+    botãoFormulário(param) {
+        cy.get('header-form').find('button').contains(param).click();
     }
 
 
-    prenchoFiltro(label, codigo) {
+    prenchoFiltro(param, codigo) {
         if (codigo === 'IDMARCA') {
             const id = Cypress.env('idGlobal');
 
             cy.get('.p-sidebar-content')
                 .find('label')
-                .contains(label)
+                .contains(param)
                 .should('be.visible')
                 .type(id);
         }

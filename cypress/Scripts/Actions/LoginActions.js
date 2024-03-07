@@ -3,18 +3,24 @@ class LoginActions {
         cy.login()
     }
 
-    menuButton(menu) {
+    menuButton(param) {
         cy.get('.toolbar-menu').find('button').click()
-        cy.get('.itens-menu-principal').contains(menu).click()
+        cy.get('.itens-menu-principal').contains(param).click()
     }
 
-    firstSubMenu(firstSubMenu) {
-        cy.get('.item').contains(firstSubMenu).click()
+    firstSubMenu(param) {
+        cy.get('.item').contains(param).click()
     }
 
-    secondSubMenu(secondSubMenu) {
-        cy.get('app-sidenav-link').contains(secondSubMenu).click()
+    // secondSubMenu(secondSubMenu) {
+    //     cy.get('app-sidenav-link').contains(secondSubMenu).click()
+    // }
+    secondSubMenu(param) {
+        cy.get('app-sidenav-link')
+          .contains(param)
+          .click();
     }
+    
 }
 
 export default new LoginActions();
