@@ -8,7 +8,7 @@ Funcionalidade: Marca Item
         E cliquei no segundo sub-menu 'Marca'
 
     Cenário: Cadastrando uma marca de item
-        Quando clico no botão 'Novo'
+        Quando clico no botão 'Novo' na tela de Marca Item
         E preencho o campo 'Descrição' com o valor 'Teste Automatizado'
         E clico no botão 'Salvar' no Formulário de Marca Item
         Então armazeno o valor do ID
@@ -28,4 +28,4 @@ Funcionalidade: Marca Item
         E clico no botão Filtrar na janela de filtro
 
         E seleciono o registro com ultimo id
-        E clico no botão 'Excluir' 
+        E clico no botão 'Excluir' na tela de Marca Item

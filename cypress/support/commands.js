@@ -49,10 +49,6 @@ Cypress.Commands.add('saveId', (id) => {
 
 Cypress.Commands.add('selectOption', (param, valor) => {
 
-    // const regexLabel = new RegExp(`^\\s*${label}\\s*$`);
-
-    // // const regexLabel = new RegExp(`^${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
-
     cy.get('.p-card-content')
         .find('.form-group')
         .contains(param)
