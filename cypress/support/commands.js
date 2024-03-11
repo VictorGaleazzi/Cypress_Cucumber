@@ -33,7 +33,7 @@ Cypress.Commands.add('login', (
         cy.get('.login-form').within(() => {
             cy.get('#username').focus().type(username)
             cy.get('#password').focus().type(password)
-            cy.root().submit().wait(5000)
+            cy.root().submit().wait(500)
         })
     },
         {
@@ -84,6 +84,24 @@ Cypress.Commands.add('selectOption', (param, valor) => {
                 throw new Error('Tipo de componente não suportado');
             }
         })
+});
+
+Cypress.Commands.add('fillField', (param, texto) => {
+    cy.get('.p-card-content')
+    .find('.form-group')
+    .find('label')
+    .contains(param)
+    .invoke('attr', 'for')
+    .then((forValue) => {
+        // Verifica se o atributo 'for' existe e não é nulo
+        if (forValue) {
+            // Usa o valor do atributo 'for' para selecionar o elemento pelo ID
+            cy.get(`#${forValue}`).type(texto);
+        } else {
+            // Caso o atributo 'for' não exista ou seja nulo
+            cy.log('O atributo "for" não foi encontrado ou é nulo');
+        }
+    });
 });
 
 Cypress.Commands.overwriteQuery("contains", function (contains, param = {}) {

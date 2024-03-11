@@ -10,21 +10,22 @@ class PessoaActions {
 
     preencherCampo(param, texto) {
 
-        cy.get('.p-card-content')
-            .find('.form-group')
-            .find('label')
-            .contains(param)
-            .invoke('attr', 'for')
-            .then((forValue) => {
-                // Verifica se o atributo 'for' existe e não é nulo
-                if (forValue) {
-                    // Usa o valor do atributo 'for' para selecionar o elemento pelo ID
-                    cy.get(`#${forValue}`).type(texto);
-                } else {
-                    // Caso o atributo 'for' não exista ou seja nulo
-                    cy.log('O atributo "for" não foi encontrado ou é nulo');
-                }
-            });
+        cy.fillField(param, texto)
+        // cy.get('.p-card-content')
+        //     .find('.form-group')
+        //     .find('label')
+        //     .contains(param)
+        //     .invoke('attr', 'for')
+        //     .then((forValue) => {
+        //         // Verifica se o atributo 'for' existe e não é nulo
+        //         if (forValue) {
+        //             // Usa o valor do atributo 'for' para selecionar o elemento pelo ID
+        //             cy.get(`#${forValue}`).type(texto);
+        //         } else {
+        //             // Caso o atributo 'for' não exista ou seja nulo
+        //             cy.log('O atributo "for" não foi encontrado ou é nulo');
+        //         }
+        //     });
     }
 
     getRegistro() {
